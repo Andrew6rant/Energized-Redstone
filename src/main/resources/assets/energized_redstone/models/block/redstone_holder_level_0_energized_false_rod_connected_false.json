@@ -1,0 +1,6 @@
+{
+  "parent": "redstone_holder:block/redstone_holder_template",
+  "textures": {
+    "6": "redstone_holder:block/redstone_fill"
+  }
+}

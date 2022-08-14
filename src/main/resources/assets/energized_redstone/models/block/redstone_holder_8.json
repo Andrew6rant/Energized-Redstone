@@ -1,0 +1,6 @@
+{
+	"parent": "energized_redstone:block/redstone_holder_template_8",
+	"textures": {
+		"6": "energized_redstone:block/redstone_fill"
+	}
+}
