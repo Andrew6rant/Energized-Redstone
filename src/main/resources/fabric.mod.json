@@ -21,6 +21,9 @@
   "entrypoints": {
     "main": [
       "io.github.Andrew6rant.energized_redstone.EnergizedRedstone"
+    ],
+    "client": [
+      "io.github.Andrew6rant.energized_redstone.EnergizedRedstoneClient"
     ]
   },
   "mixins": [

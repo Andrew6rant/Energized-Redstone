@@ -1,5 +1,6 @@
 package io.github.Andrew6rant.energized_redstone.block;
 
+import io.github.Andrew6rant.energized_redstone.EnergizedRedstone;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LightningRodBlock;
@@ -8,22 +9,21 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.network.DebugInfoSender;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
 
 public class RedstoneHolder extends Block {
     public RedstoneHolder(Settings settings) {
@@ -59,7 +59,7 @@ public class RedstoneHolder extends Block {
         int level = blockState.get(LEVEL);
         boolean energized = blockState.get(ENERGIZED);
         if (energized) {
-            dropStack(world, pos, new ItemStack(Items.SWEET_BERRIES, level));
+            dropStack(world, pos, new ItemStack(EnergizedRedstone.ENERGIZED_REDSTONE_WIRE, level));
             world.setBlockState(pos, blockState.with(LEVEL, 0).with(ENERGIZED, false));
             player.playSound(SoundEvents.BLOCK_CAKE_ADD_CANDLE, 1, 1);
             return ActionResult.SUCCESS;
@@ -96,6 +96,16 @@ public class RedstoneHolder extends Block {
 
     @Override
     public void neighborUpdate(BlockState blockState, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        Util.make(new Vec3d[32], (vec3ds) -> {
+            for(int i = 0; i <= 15; ++i) {
+                float f = (float)i / 15.0F;
+                float g = f * 0.6F + (f > 0.0F ? 0.4F : 0.3F);
+                float h = MathHelper.clamp(f * f * 0.7F - 0.5F, 0.0F, 1.0F);
+                float j = MathHelper.clamp(f * f * 0.6F - 0.7F, 0.0F, 1.0F);
+                System.out.println("COLOR: i:"+i+", "+g+", "+h+", "+j+", "+MathHelper.packRgb(g, h, j));
+                vec3ds[i] = new Vec3d((double)g, (double)h, (double)j);
+            }
+        });
         if (world.getBlockState(pos.up()).getBlock() instanceof LightningRodBlock) {
             world.setBlockState(pos, blockState.with(ROD_CONNECTED, true));
         } else {

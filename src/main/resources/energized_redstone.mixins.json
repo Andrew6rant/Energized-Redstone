@@ -4,7 +4,8 @@
   "package": "io.github.Andrew6rant.energized_redstone.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "LightningEntityMixin"
+    "LightningEntityMixin",
+    "WorldMixin"
   ],
   "client": [],
   "server": [],

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "energized_redstone:block/energized_redstone_block"
+    }
+  }
+}
