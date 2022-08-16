@@ -255,7 +255,7 @@ public class EnergizedRedstoneWireBlock extends Block {
         int i = world.getReceivedRedstonePower(pos);
         this.wiresGivePower = true;
         int j = 0;
-        if (i < 19) {
+        if (i < 31) {
             Iterator var5 = Type.HORIZONTAL.iterator();
 
             while(true) {
@@ -280,7 +280,7 @@ public class EnergizedRedstoneWireBlock extends Block {
     }
 
     private int increasePower(BlockState state) {
-        return state.isOf(this) ? (Integer)state.get(POWER) : 0;
+        return state.isOf(this) ? state.get(POWER) : 0;
     }
 
     private void updateNeighbors(World world, BlockPos pos) {
@@ -365,15 +365,12 @@ public class EnergizedRedstoneWireBlock extends Block {
     }
 
     public int getStrongRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-        //return !this.wiresGivePower ? 0 : state.getWeakRedstonePower(world, pos, direction);
         return !this.wiresGivePower ? 0 : this.getWeakRedstonePower(state, world, pos, direction);
     }
 
     public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
         if (this.wiresGivePower && direction != Direction.DOWN) {
-            System.out.println("getWeakRedstonePower");
-            int i = (Integer)state.get(POWER);
-            System.out.println("POWER: "+i);
+            int i = state.get(POWER);
             if (i == 0) {
                 return 0;
             } else {
@@ -385,14 +382,14 @@ public class EnergizedRedstoneWireBlock extends Block {
     }
 
     protected static boolean connectsTo(BlockState state) {
-        return connectsTo(state, (Direction)null);
+        return connectsTo(state, null);
     }
 
     protected static boolean connectsTo(BlockState state, @Nullable Direction dir) {
         if (state.isOf(Blocks.REDSTONE_WIRE)) {
-            return true;
+            return false;
         } else if (state.isOf(Blocks.REPEATER)) {
-            Direction direction = (Direction)state.get(RepeaterBlock.FACING);
+            Direction direction = state.get(RepeaterBlock.FACING);
             return direction == dir || direction.getOpposite() == dir;
         } else if (state.isOf(Blocks.OBSERVER)) {
             return dir == state.get(ObserverBlock.FACING);
@@ -423,7 +420,7 @@ public class EnergizedRedstoneWireBlock extends Block {
     }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        int i = (Integer)state.get(POWER);
+        int i = state.get(POWER);
         if (i != 0) {
             Iterator var6 = Type.HORIZONTAL.iterator();
 
@@ -540,15 +537,5 @@ public class EnergizedRedstoneWireBlock extends Block {
             vec3ds[30] = new Vec3d(1, 0.902, 0.883);
             vec3ds[31] = new Vec3d(1, 0.949, 0.942);
         });
-        /*
-        COLORS = (Vec3d[])Util.make(new Vec3d[32], (vec3ds) -> {
-            for(int i = 0; i <= 31; ++i) {
-                float f = (float)i / 31.0F;
-                float g = f * 0.6F + (f > 0.0F ? 0.4F : 0.3F);
-                float h = MathHelper.clamp(f * f * 0.7F - 0.5F, 0.0F, 1.0F);
-                float j = MathHelper.clamp(f * f * 0.6F - 0.7F, 0.0F, 1.0F);
-                vec3ds[i] = new Vec3d((double)g, (double)h, (double)j);
-            }
-        });*/
     }
 }

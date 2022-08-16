@@ -96,16 +96,6 @@ public class RedstoneHolder extends Block {
 
     @Override
     public void neighborUpdate(BlockState blockState, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        Util.make(new Vec3d[32], (vec3ds) -> {
-            for(int i = 0; i <= 15; ++i) {
-                float f = (float)i / 15.0F;
-                float g = f * 0.6F + (f > 0.0F ? 0.4F : 0.3F);
-                float h = MathHelper.clamp(f * f * 0.7F - 0.5F, 0.0F, 1.0F);
-                float j = MathHelper.clamp(f * f * 0.6F - 0.7F, 0.0F, 1.0F);
-                System.out.println("COLOR: i:"+i+", "+g+", "+h+", "+j+", "+MathHelper.packRgb(g, h, j));
-                vec3ds[i] = new Vec3d((double)g, (double)h, (double)j);
-            }
-        });
         if (world.getBlockState(pos.up()).getBlock() instanceof LightningRodBlock) {
             world.setBlockState(pos, blockState.with(ROD_CONNECTED, true));
         } else {
