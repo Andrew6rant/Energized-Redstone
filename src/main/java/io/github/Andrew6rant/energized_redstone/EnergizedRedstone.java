@@ -13,7 +13,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.WallStandingBlockItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
@@ -42,13 +41,10 @@ public class EnergizedRedstone implements ModInitializer {
         BlockPos newPos = pos.down();
         BlockState blockState = world.getBlockState(newPos);
         if (blockState.getBlock() == REDSTONE_HOLDER) {
-
             Iterable<BlockPos> iterable = BlockPos.iterate(newPos.south(1).west(2), newPos.north(1).east(2));
             Iterable<BlockPos> iterable2 = BlockPos.iterate(newPos.south(2).west(1), newPos.south(2).east(1));
             Iterable<BlockPos> iterable3 = BlockPos.iterate(newPos.north(2).west(1), newPos.north(2).east(1));
             Iterable<BlockPos> totalIterable = Iterables.concat(iterable, iterable2, iterable3);
-            //Iterable<BlockPos> iterable = BlockPos.iterateOutwards(newPos, 3, 0, 3);
-            //Iterable<BlockPos.Mutable> iterable = BlockPos.iterateInSquare(newPos, 2, Direction.EAST, Direction.SOUTH);
             for (BlockPos mutable : totalIterable) {
                 BlockState state = world.getBlockState(mutable);
                 if (state.getBlock() == REDSTONE_HOLDER) {

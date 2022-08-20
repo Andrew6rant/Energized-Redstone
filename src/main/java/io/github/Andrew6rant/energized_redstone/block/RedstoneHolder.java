@@ -1,10 +1,7 @@
 package io.github.Andrew6rant.energized_redstone.block;
 
 import io.github.Andrew6rant.energized_redstone.EnergizedRedstone;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.LightningRodBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -15,11 +12,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -86,7 +80,11 @@ public class RedstoneHolder extends Block {
             }
         }
         if (stack.isEmpty() && level != 0) { // return redstone to player on empty hand
-            dropStack(world, pos, new ItemStack(Items.REDSTONE, level));
+            if (level == 9) {
+                dropStack(world, pos, new ItemStack(Blocks.REDSTONE_BLOCK, 1));
+            } else {
+                dropStack(world, pos, new ItemStack(Items.REDSTONE, level));
+            }
             world.setBlockState(pos, blockState.with(LEVEL, 0));
             player.playSound(SoundEvents.BLOCK_CAKE_ADD_CANDLE, 1, 1);
             return ActionResult.SUCCESS;

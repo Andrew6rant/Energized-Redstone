@@ -1,9 +1,7 @@
 package io.github.Andrew6rant.energized_redstone.mixin;
 
 import io.github.Andrew6rant.energized_redstone.block.EnergizedRedstoneWireBlock;
-import net.minecraft.block.Block;
 import net.minecraft.block.RedstoneWireBlock;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;

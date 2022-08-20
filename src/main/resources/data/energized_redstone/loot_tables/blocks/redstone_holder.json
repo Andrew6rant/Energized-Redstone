@@ -1,0 +1,392 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "0"
+                  }
+                }
+              ],
+              "count": 0.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "1"
+                  }
+                }
+              ],
+              "count": 1.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "2"
+                  }
+                }
+              ],
+              "count": 2.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "3"
+                  }
+                }
+              ],
+              "count": 3.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "4"
+                  }
+                }
+              ],
+              "count": 4.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "5"
+                  }
+                }
+              ],
+              "count": 5.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "6"
+                  }
+                }
+              ],
+              "count": 6.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "7"
+                  }
+                }
+              ],
+              "count": 7.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "8"
+                  }
+                }
+              ],
+              "count": 8.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "9"
+                  }
+                }
+              ],
+              "count": 0.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "energized": "true"
+                  }
+                }
+              ],
+              "count": 0.0
+            }
+          ],
+          "name": "minecraft:redstone"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "0"
+                  }
+                }
+              ],
+              "count": 0.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "1"
+                  }
+                }
+              ],
+              "count": 1.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "2"
+                  }
+                }
+              ],
+              "count": 2.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "3"
+                  }
+                }
+              ],
+              "count": 3.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "4"
+                  }
+                }
+              ],
+              "count": 4.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "5"
+                  }
+                }
+              ],
+              "count": 5.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "6"
+                  }
+                }
+              ],
+              "count": 6.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "7"
+                  }
+                }
+              ],
+              "count": 7.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "8"
+                  }
+                }
+              ],
+              "count": 8.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "level": "9"
+                  }
+                }
+              ],
+              "count": 0.0
+            },
+            {
+              "function": "minecraft:set_count",
+              "add": false,
+              "conditions": [
+                {
+                  "block": "energized_redstone:redstone_holder",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "energized": "false"
+                  }
+                }
+              ],
+              "count": 0.0
+            }
+          ],
+          "name": "energized_redstone:energized_redstone_wire"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "energized_redstone:redstone_holder",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "level": "9",
+            "energized": "false"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:redstone_block"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "energized_redstone:redstone_holder",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "level": "9",
+            "energized": "true"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "energized_redstone:energized_redstone_block"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "energized_redstone:redstone_holder"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

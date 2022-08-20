@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "energized_redstone:energized_redstone_block",
+	"energized_redstone:energized_redstone_wire",
+	"energized_redstone:energized_redstone_torch",
+	"energized_redstone:energized_redstone_wall_torch",
+	"energized_redstone:redstone_holder"
+  ]
+}

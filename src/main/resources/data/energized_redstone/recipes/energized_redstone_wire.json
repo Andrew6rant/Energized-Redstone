@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "energized_redstone:energized_redstone_block"
+    }
+  ],
+  "result": {
+    "item": "energized_redstone:energized_redstone_wire",
+    "count": 9
+  }
+}

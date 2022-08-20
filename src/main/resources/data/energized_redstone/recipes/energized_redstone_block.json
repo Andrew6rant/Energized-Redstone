@@ -1,0 +1,18 @@
+
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "energized_redstone:energized_redstone_wire"
+    }
+  },
+  "result": {
+    "item": "energized_redstone:energized_redstone_block",
+    "count": 1
+  }
+}
