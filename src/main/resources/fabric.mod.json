@@ -2,9 +2,8 @@
   "schemaVersion": 1,
   "id": "stacker",
   "version": "${version}",
-
   "name": "Energized Redstone",
-  "description": "Extend Redstone past 15, using the power of lightning!",
+  "description": "Harness the power of lightning to extend Redstone!",
   "authors": [
     "Andrew6rant (Andrew Grant)"
   ],
@@ -13,10 +12,8 @@
     "sources": "https://github.com/Andrew6rant/energized-redstone",
     "issues": "https://github.com/Andrew6rant/energized-redstone/issues"
   },
-
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/energized_redstone/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -29,12 +26,11 @@
   "mixins": [
     "energized_redstone.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": [
-      "1.19.2"
+      "1.19.x"
     ],
     "java": ">=17"
   }
