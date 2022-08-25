@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static net.minecraft.client.render.WorldRenderer.DIRECTIONS;
+import net.minecraft.util.math.Direction;
 
 @Mixin(World.class)
 public abstract class WorldMixin {
@@ -19,7 +19,7 @@ public abstract class WorldMixin {
         World world = (World) (Object) this;
         if (world.getBlockState(pos).getBlock() instanceof EnergizedRedstoneWireBlock) {
             int i = 0;
-            for (Direction direction : DIRECTIONS) {
+            for (Direction direction : Direction.values()) {
                 BlockPos offsetPos = pos.offset(direction);
                 int j = world.getEmittedRedstonePower(offsetPos, direction);
                 if (world.getBlockState(offsetPos).getBlock() instanceof RedstoneWireBlock) {
@@ -37,7 +37,7 @@ public abstract class WorldMixin {
             cir.setReturnValue(i);
         } else {
             int i = 0;
-            for (Direction direction : DIRECTIONS) {
+            for (Direction direction : Direction.values()) {
                 BlockPos offsetPos = pos.offset(direction);
                 int j = world.getEmittedRedstonePower(offsetPos, direction);
                 //System.out.println(world.getBlockState(offsetPos).getBlock().getLootTableId().getNamespace().equals("energized_redstone"));
