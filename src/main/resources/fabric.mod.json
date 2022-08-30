@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "stacker",
+  "id": "energized_redstone",
   "version": "${version}",
   "name": "Energized Redstone",
   "description": "Harness the power of lightning to extend Redstone!",
