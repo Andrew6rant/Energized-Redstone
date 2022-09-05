@@ -1,0 +1,70 @@
+{
+	"credit": "Andrew Grant, Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"2": "energized_redstone:block/energized_repeater_on",
+		"3": "energized_redstone:block/energized_redstone_torch",
+		"particle": "energized_redstone:block/energized_repeater_on",
+		"slab": "block/smooth_stone"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 2, 16],
+			"faces": {
+				"north": {"uv": [0, 14, 16, 16], "texture": "#slab", "cullface": "north"},
+				"east": {"uv": [0, 14, 16, 16], "texture": "#slab", "cullface": "east"},
+				"south": {"uv": [0, 14, 16, 16], "texture": "#slab", "cullface": "south"},
+				"west": {"uv": [0, 14, 16, 16], "texture": "#slab", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#slab", "cullface": "down"}
+			}
+		},
+		{
+			"from": [7, 2, 2],
+			"to": [9, 7, 4],
+			"faces": {
+				"up": {"uv": [7, 6, 9, 8], "texture": "#3"}
+			}
+		},
+		{
+			"from": [7, 2, 1],
+			"to": [9, 8, 5],
+			"faces": {
+				"east": {"uv": [6, 5, 10, 11], "texture": "#3"},
+				"west": {"uv": [6, 5, 10, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [6, 2, 2],
+			"to": [10, 8, 4],
+			"faces": {
+				"north": {"uv": [6, 5, 10, 11], "texture": "#3"},
+				"south": {"uv": [6, 5, 10, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [4, 2, 8],
+			"to": [6, 8, 12],
+			"faces": {
+				"east": {"uv": [6, 5, 10, 11], "texture": "#3"},
+				"west": {"uv": [6, 5, 10, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [3, 2, 9],
+			"to": [7, 8, 11],
+			"faces": {
+				"north": {"uv": [6, 5, 10, 11], "texture": "#3"},
+				"south": {"uv": [6, 5, 10, 11], "texture": "#3"}
+			}
+		},
+		{
+			"from": [4, 2, 9],
+			"to": [6, 7, 11],
+			"faces": {
+				"up": {"uv": [7, 6, 9, 8], "texture": "#3"}
+			}
+		}
+	]
+}

@@ -23,6 +23,7 @@ public class EnergizedRedstone implements ModInitializer {
     public static final EnergizedRedstoneWireBlock ENERGIZED_REDSTONE_WIRE = new EnergizedRedstoneWireBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_WIRE).nonOpaque());
     public static final EnergizedRedstoneTorch ENERGIZED_REDSTONE_TORCH = new EnergizedRedstoneTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_TORCH).nonOpaque().noCollision());
     public static final EnergizedRedstoneWallTorch ENERGIZED_REDSTONE_WALL_TORCH = new EnergizedRedstoneWallTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_WALL_TORCH).nonOpaque().noCollision());
+    public static final EnergizedRepeaterBlock ENERGIZED_REPEATER = new EnergizedRepeaterBlock(FabricBlockSettings.copyOf(Blocks.REPEATER));
 
     @Override
     public void onInitialize() {
@@ -35,6 +36,8 @@ public class EnergizedRedstone implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_redstone_torch"), ENERGIZED_REDSTONE_TORCH);
         Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_redstone_wall_torch"), ENERGIZED_REDSTONE_WALL_TORCH);
         Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_redstone_torch"), new WallStandingBlockItem(ENERGIZED_REDSTONE_TORCH, ENERGIZED_REDSTONE_WALL_TORCH, new FabricItemSettings().group(ItemGroup.REDSTONE)));
+        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_repeater"), ENERGIZED_REPEATER);
+        Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_repeater"), new BlockItem(ENERGIZED_REPEATER, new FabricItemSettings().group(ItemGroup.REDSTONE)));
     }
 
     public static void energize(World world, BlockPos pos) {
