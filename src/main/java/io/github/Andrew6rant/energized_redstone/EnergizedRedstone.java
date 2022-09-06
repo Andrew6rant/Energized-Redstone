@@ -2,19 +2,30 @@ package io.github.Andrew6rant.energized_redstone;
 
 import com.google.common.collect.Iterables;
 import io.github.Andrew6rant.energized_redstone.block.*;
+import io.github.Andrew6rant.energized_redstone.potion.ExtendedPotions;
+import me.emafire003.dev.potionrecipes.BrewingRecipeRegister;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.WallStandingBlockItem;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class EnergizedRedstone implements ModInitializer {
 
@@ -38,6 +49,13 @@ public class EnergizedRedstone implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_redstone_torch"), new WallStandingBlockItem(ENERGIZED_REDSTONE_TORCH, ENERGIZED_REDSTONE_WALL_TORCH, new FabricItemSettings().group(ItemGroup.REDSTONE)));
         Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_repeater"), ENERGIZED_REPEATER);
         Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_repeater"), new BlockItem(ENERGIZED_REPEATER, new FabricItemSettings().group(ItemGroup.REDSTONE)));
+
+        // todo datagen potion
+        //List<StatusEffectInstance> StatusEffectInstanceList = Registry.POTION.stream().flatMap(potion -> potion.getEffects().stream()).toList();
+        //for (StatusEffectInstance statusEffectInstance : StatusEffectInstanceList) {
+        //    System.out.println(statusEffectInstance.getEffectType().getName()+": "+statusEffectInstance.getDuration()+", "+statusEffectInstance.getAmplifier());
+        //}
+        ExtendedPotions.registerPotionRecipes();
     }
 
     public static void energize(World world, BlockPos pos) {
