@@ -3,7 +3,7 @@
   "id": "energized_redstone",
   "version": "${version}",
   "name": "Energized Redstone",
-  "description": "Harness the power of lightning to extend Redstone!",
+  "description": "Harness the power of lightning to extend the length of Redstone!",
   "authors": [
     "Andrew6rant (Andrew Grant)"
   ],
@@ -28,11 +28,8 @@
   ],
   "depends": {
     "fabricloader": ">=0.11.3",
-    "fabric": "*",
-    "minecraft": [
-      "1.18.x",
-      "1.19.x"
-    ],
+    "fabric-api": "*",
+    "minecraft": ">=1.19.3",
     "java": ">=17"
   }
 }

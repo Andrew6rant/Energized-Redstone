@@ -2,15 +2,21 @@ package io.github.Andrew6rant.energized_redstone.potion;
 
 import io.github.Andrew6rant.energized_redstone.EnergizedRedstone;
 import me.emafire003.dev.potionrecipes.BrewingRecipeRegister;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.*;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class ExtendedPotions {
     // thanks to emafire003 for the example potion library code from GlowfulWorld
+
     public static Potion LONGER_NIGHT_VISION = register("longer_night_vision", new Potion("night_vision", new StatusEffectInstance(StatusEffects.NIGHT_VISION, 14400)));
     public static Potion LONGER_INVISIBILITY = register("longer_invisibility", new Potion("invisibility", new StatusEffectInstance(StatusEffects.INVISIBILITY, 14400)));
     public static Potion LONGER_LEAPING = register("longer_leaping", new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, 14400)));
@@ -26,10 +32,11 @@ public class ExtendedPotions {
     public static Potion LONGER_SLOW_FALLING = register("longer_slow_falling", new Potion("slow_falling", new StatusEffectInstance(StatusEffects.SLOW_FALLING, 7200)));
 
     private static Potion register(String name, Potion potion) {
-        return Registry.register(Registry.POTION, new Identifier("energized_redstone", name), potion);
+        return Registry.register(Registries.POTION, new Identifier("energized_redstone", name), potion);
     }
 
     public static void registerPotionRecipes() {
+
         BrewingRecipeRegister.registerPotionRecipe(Potions.NIGHT_VISION, EnergizedRedstone.ENERGIZED_REDSTONE_WIRE.asItem(), LONGER_NIGHT_VISION);
         BrewingRecipeRegister.registerPotionRecipe(Potions.INVISIBILITY, EnergizedRedstone.ENERGIZED_REDSTONE_WIRE.asItem(), LONGER_INVISIBILITY);
         BrewingRecipeRegister.registerPotionRecipe(Potions.LEAPING, EnergizedRedstone.ENERGIZED_REDSTONE_WIRE.asItem(), LONGER_LEAPING);
@@ -43,5 +50,21 @@ public class ExtendedPotions {
         BrewingRecipeRegister.registerPotionRecipe(Potions.STRENGTH, EnergizedRedstone.ENERGIZED_REDSTONE_WIRE.asItem(), LONGER_STRENGTH);
         BrewingRecipeRegister.registerPotionRecipe(Potions.WEAKNESS, EnergizedRedstone.ENERGIZED_REDSTONE_WIRE.asItem(), LONGER_WEAKNESS);
         BrewingRecipeRegister.registerPotionRecipe(Potions.SLOW_FALLING, EnergizedRedstone.ENERGIZED_REDSTONE_WIRE.asItem(), LONGER_SLOW_FALLING);
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_NIGHT_VISION), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_NIGHT_VISION));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_INVISIBILITY), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_INVISIBILITY));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_LEAPING), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_LEAPING));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_FIRE_RESISTANCE), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_FIRE_RESISTANCE));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_SWIFTNESS), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_SWIFTNESS));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_SLOWNESS), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_SLOWNESS));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_TURTLE_MASTER), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_TURTLE_MASTER));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_WATER_BREATHING), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_WATER_BREATHING));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_POISON), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_POISON));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_REGENERATION), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_REGENERATION));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_STRENGTH), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_STRENGTH));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_WEAKNESS), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_WEAKNESS));
+            entries.addAfter(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.LONG_SLOW_FALLING), PotionUtil.setPotion(new ItemStack(Items.POTION), LONGER_SLOW_FALLING));
+        });
     }
 }

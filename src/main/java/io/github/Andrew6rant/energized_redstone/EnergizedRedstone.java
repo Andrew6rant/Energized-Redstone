@@ -6,6 +6,7 @@ import io.github.Andrew6rant.energized_redstone.potion.ExtendedPotions;
 import me.emafire003.dev.potionrecipes.BrewingRecipeRegister;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -14,12 +15,15 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.WallStandingBlockItem;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.item.VerticallyAttachableBlockItem;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -34,27 +38,38 @@ public class EnergizedRedstone implements ModInitializer {
     public static final EnergizedRedstoneWireBlock ENERGIZED_REDSTONE_WIRE = new EnergizedRedstoneWireBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_WIRE).nonOpaque());
     public static final EnergizedRedstoneTorch ENERGIZED_REDSTONE_TORCH = new EnergizedRedstoneTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_TORCH).nonOpaque().noCollision());
     public static final EnergizedRedstoneWallTorch ENERGIZED_REDSTONE_WALL_TORCH = new EnergizedRedstoneWallTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_WALL_TORCH).nonOpaque().noCollision());
+
+    //        REDSTONE_WALL_TORCH = register("redstone_wall_torch", new WallRedstoneTorchBlock(Settings.of(Material.DECORATION).noCollision().breakInstantly().luminance(createLightLevelFromLitBlockState(7)).sounds(BlockSoundGroup.WOOD).dropsLike(REDSTONE_TORCH)));
     public static final EnergizedRepeaterBlock ENERGIZED_REPEATER = new EnergizedRepeaterBlock(FabricBlockSettings.copyOf(Blocks.REPEATER));
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "redstone_holder"), REDSTONE_HOLDER);
-        Registry.register(Registry.ITEM, new Identifier("energized_redstone", "redstone_holder"), new BlockItem(REDSTONE_HOLDER, new FabricItemSettings().group(ItemGroup.REDSTONE)));
-        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_redstone_block"), ENERGIZED_REDSTONE_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_redstone_block"), new BlockItem(ENERGIZED_REDSTONE_BLOCK, new FabricItemSettings().group(ItemGroup.REDSTONE)));
-        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_redstone_wire"), ENERGIZED_REDSTONE_WIRE);
-        Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_redstone_wire"), new BlockItem(ENERGIZED_REDSTONE_WIRE, new FabricItemSettings().group(ItemGroup.REDSTONE)));
-        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_redstone_torch"), ENERGIZED_REDSTONE_TORCH);
-        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_redstone_wall_torch"), ENERGIZED_REDSTONE_WALL_TORCH);
-        Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_redstone_torch"), new WallStandingBlockItem(ENERGIZED_REDSTONE_TORCH, ENERGIZED_REDSTONE_WALL_TORCH, new FabricItemSettings().group(ItemGroup.REDSTONE)));
-        Registry.register(Registry.BLOCK, new Identifier("energized_redstone", "energized_repeater"), ENERGIZED_REPEATER);
-        Registry.register(Registry.ITEM, new Identifier("energized_redstone", "energized_repeater"), new BlockItem(ENERGIZED_REPEATER, new FabricItemSettings().group(ItemGroup.REDSTONE)));
+        Registry.register(Registries.BLOCK, new Identifier("energized_redstone", "redstone_holder"), REDSTONE_HOLDER);
+        Registry.register(Registries.ITEM, new Identifier("energized_redstone", "redstone_holder"), new BlockItem(REDSTONE_HOLDER, new FabricItemSettings()));
+        Registry.register(Registries.BLOCK, new Identifier("energized_redstone", "energized_redstone_block"), ENERGIZED_REDSTONE_BLOCK);
+        Registry.register(Registries.ITEM, new Identifier("energized_redstone", "energized_redstone_block"), new BlockItem(ENERGIZED_REDSTONE_BLOCK, new FabricItemSettings()));
+        Registry.register(Registries.BLOCK, new Identifier("energized_redstone", "energized_redstone_wire"), ENERGIZED_REDSTONE_WIRE);
+        Registry.register(Registries.ITEM, new Identifier("energized_redstone", "energized_redstone_wire"), new BlockItem(ENERGIZED_REDSTONE_WIRE, new FabricItemSettings()));
+        Registry.register(Registries.BLOCK, new Identifier("energized_redstone", "energized_redstone_torch"), ENERGIZED_REDSTONE_TORCH);
+        Registry.register(Registries.BLOCK, new Identifier("energized_redstone", "energized_redstone_wall_torch"), ENERGIZED_REDSTONE_WALL_TORCH);
+        Registry.register(Registries.ITEM, new Identifier("energized_redstone", "energized_redstone_torch"), new VerticallyAttachableBlockItem(ENERGIZED_REDSTONE_TORCH, ENERGIZED_REDSTONE_WALL_TORCH, new FabricItemSettings(), Direction.DOWN));
+        Registry.register(Registries.BLOCK, new Identifier("energized_redstone", "energized_repeater"), ENERGIZED_REPEATER);
+        Registry.register(Registries.ITEM, new Identifier("energized_redstone", "energized_repeater"), new BlockItem(ENERGIZED_REPEATER, new FabricItemSettings()));
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+            entries.addAfter(Blocks.LIGHTNING_ROD, REDSTONE_HOLDER);
+            entries.addAfter(Blocks.REDSTONE_BLOCK, ENERGIZED_REDSTONE_BLOCK);
+            entries.addAfter(Blocks.REDSTONE_BLOCK, ENERGIZED_REDSTONE_TORCH);
+            entries.addAfter(Blocks.REDSTONE_BLOCK, ENERGIZED_REDSTONE_WIRE);
+            entries.addAfter(Blocks.REPEATER, ENERGIZED_REPEATER);
+        });
 
         // todo datagen potion
         //List<StatusEffectInstance> StatusEffectInstanceList = Registry.POTION.stream().flatMap(potion -> potion.getEffects().stream()).toList();
         //for (StatusEffectInstance statusEffectInstance : StatusEffectInstanceList) {
         //    System.out.println(statusEffectInstance.getEffectType().getName()+": "+statusEffectInstance.getDuration()+", "+statusEffectInstance.getAmplifier());
         //}
+
         ExtendedPotions.registerPotionRecipes();
     }
 
