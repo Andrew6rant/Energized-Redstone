@@ -19,6 +19,10 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 dependencies {
@@ -32,6 +36,7 @@ dependencies {
 
     modImplementation "maven.modrinth:potionrecipelib:${project.potionrecipelib_version}"
     include "maven.modrinth:potionrecipelib:${project.potionrecipelib_version}"
+    modImplementation "dev.emi:emi:${emi_version}"
 }
 
 processResources {

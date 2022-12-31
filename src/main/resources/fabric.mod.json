@@ -21,6 +21,9 @@
     ],
     "client": [
       "io.github.Andrew6rant.energized_redstone.EnergizedRedstoneClient"
+    ],
+    "emi": [
+      "io.github.Andrew6rant.energized_redstone.emi.EnergizedRedstoneEmi"
     ]
   },
   "mixins": [
