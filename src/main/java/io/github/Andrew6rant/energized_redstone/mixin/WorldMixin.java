@@ -10,8 +10,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.util.math.Direction;
-
 @Mixin(World.class)
 public abstract class WorldMixin {
     @Inject(method = "getReceivedRedstonePower", at = @At("HEAD"), cancellable = true)

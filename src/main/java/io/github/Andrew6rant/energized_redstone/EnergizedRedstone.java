@@ -3,7 +3,6 @@ package io.github.Andrew6rant.energized_redstone;
 import com.google.common.collect.Iterables;
 import io.github.Andrew6rant.energized_redstone.block.*;
 import io.github.Andrew6rant.energized_redstone.potion.ExtendedPotions;
-import me.emafire003.dev.potionrecipes.BrewingRecipeRegister;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -11,14 +10,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.VerticallyAttachableBlockItem;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -26,18 +20,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class EnergizedRedstone implements ModInitializer {
 
     public static final RedstoneHolder REDSTONE_HOLDER = new RedstoneHolder(FabricBlockSettings.of(Material.STONE).strength(1.5f, 1.5f).nonOpaque());
     public static final EnergizedRedstoneBlock ENERGIZED_REDSTONE_BLOCK = new EnergizedRedstoneBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_BLOCK));
     public static final EnergizedRedstoneWireBlock ENERGIZED_REDSTONE_WIRE = new EnergizedRedstoneWireBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_WIRE).nonOpaque());
-    public static final EnergizedRedstoneTorch ENERGIZED_REDSTONE_TORCH = new EnergizedRedstoneTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_TORCH).nonOpaque().noCollision());
-    public static final EnergizedRedstoneWallTorch ENERGIZED_REDSTONE_WALL_TORCH = new EnergizedRedstoneWallTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_WALL_TORCH).nonOpaque().noCollision());
+    public static final EnergizedRedstoneTorch ENERGIZED_REDSTONE_TORCH = new EnergizedRedstoneTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_TORCH).nonOpaque().noCollision().luminance(15));
+    public static final EnergizedRedstoneWallTorch ENERGIZED_REDSTONE_WALL_TORCH = new EnergizedRedstoneWallTorch(FabricBlockSettings.copyOf(Blocks.REDSTONE_WALL_TORCH).nonOpaque().noCollision().luminance(15));
 
     //        REDSTONE_WALL_TORCH = register("redstone_wall_torch", new WallRedstoneTorchBlock(Settings.of(Material.DECORATION).noCollision().breakInstantly().luminance(createLightLevelFromLitBlockState(7)).sounds(BlockSoundGroup.WOOD).dropsLike(REDSTONE_TORCH)));
     public static final EnergizedRepeaterBlock ENERGIZED_REPEATER = new EnergizedRepeaterBlock(FabricBlockSettings.copyOf(Blocks.REPEATER));

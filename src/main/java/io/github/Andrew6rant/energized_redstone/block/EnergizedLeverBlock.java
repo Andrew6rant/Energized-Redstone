@@ -2,7 +2,6 @@ package io.github.Andrew6rant.energized_redstone.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeverBlock;
-import net.minecraft.block.RedstoneTorchBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;

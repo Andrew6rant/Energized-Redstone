@@ -3,7 +3,6 @@ package io.github.Andrew6rant.energized_redstone.potion;
 import io.github.Andrew6rant.energized_redstone.EnergizedRedstone;
 import me.emafire003.dev.potionrecipes.BrewingRecipeRegister;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
