@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#R#",
+    "SSS"
+  ],
+  "key": {
+    "#": {
+      "item": "energized_redstone:energized_redstone_torch"
+    },
+    "R": {
+      "item": "energized_redstone:energized_redstone_wire"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "energized_redstone:energized_repeater",
+    "count": 1
+  }
+}
